@@ -67,8 +67,6 @@ powerup.style.display = "none";
 window.onload = function() {
     const dots = document.getElementById("dots");
 
-    console.log("Laad Pagina");
-
     //fade-out text
     setTimeout(() => {
         loadingText.style.opacity = "0";
@@ -136,10 +134,7 @@ function playRandomThierryReactie() {
 function changeThierryMep() {
     thierry.src = "images/thierry/thierrymep.png";
 
-    console.log("👊 Thierry krijgt een mep!")
-
     mepSound.play();
-
 
     setTimeout(() => {
         thierry.src = "images/thierry/thierryboos.png";
@@ -156,8 +151,6 @@ function changeThierryMep() {
 
 function changeThierrySchop() {
     thierry.src = "images/thierry/thierryschop.png";
-
-    console.log("🦵 Thierry krijgt een schop!")
 
     schopSound.play();
 
@@ -179,7 +172,6 @@ function updateHealth() {
     if (currentHealth > 0) {
         currentHealth--; // Verlaag healthwaarde
         healthbar.src = healthLevels[currentHealth];
-        console.log(`💔 Health verlaagd. Nieuw level: ${currentHealth}`);
     }
 }
 
@@ -188,7 +180,6 @@ function updatePowerup() {
     if (currentPower < powerupLevels.length - 1) {
         currentPower++;
         powerup.src = powerupLevels[currentPower];
-        console.log(`⚡ Power-up level verhoogd naar ${currentPower}`);
     }
 
 
@@ -199,7 +190,6 @@ function updatePowerup() {
 }
 
 function showGameOver() {
-    console.log("💀 Game Over. Thierry is verslagen.");
 
     gameOverScherm.style.visibility = "visible";
     gameOverScherm.style.opacity = "1";
@@ -220,7 +210,6 @@ function showGameOver() {
 /* ChatGPT, antwoord op “Hoe maak ik een cooldown button bij een png?”, 22 maart 2025, https://chat.openai.com/chat.*/
 greenButton.addEventListener("click", () => {
     if (mepCooldown) {
-        console.log("⏳ Mep-knop zit nog in cooldown.");
         return; //voorkomt trigger changeThierryMep //
     }
 
@@ -241,7 +230,6 @@ greenButton.addEventListener("click", () => {
 
 yellowButton.addEventListener("click", () => {
     if (schopCooldown) {
-        console.log("⏳ Schop-knop zit nog in cooldown.");
         return;
     }
 
@@ -268,8 +256,6 @@ blueButton.addEventListener("click", () => {
 
 powerupButton.addEventListener("click", () => {
     pressButton(powerupButtonimg, "images/buttons/powerupactivated.png", "images/buttons/powerpushed.png");
-
-    console.log("⚡️ Power-up geactiveerd!");
 
     //classlist voegt CSS klasse op HTML-element
     /*https://developer.mozilla.org/en-US/docs/Web/API/Element/classList*/
